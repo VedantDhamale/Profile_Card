@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Vedant Dhamale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0" />
+  <link rel="stylesheet" href="./tmp/assets/css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kalnia:wght@500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Mooli&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
+
+  <style>
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background-color: #fafafa;
+    }
+
+    .hero-content {
+      position: relative;
+      padding: 15px;
+      text-align: center;
+      color: #333;
+    }
+
+    .hero-title {
+      font-size: 1rem;
+      font-weight: 700;
+      /* margin-bottom: 1px; */
+    }
+
+    .hero_img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      /* background: #f8f8f8; */
+    }
+
+    .rounded-image {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .icon-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1.1rem;
+      gap: 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .icon-container a:hover {
+      transform: scale(1.5);
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .icon-container a:hover {
+      animation: pulse 0.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1.2);
+      }
+
+      50% {
+        transform: scale(1.3);
+      }
+
+      100% {
+        transform: scale(1.1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cb-demo" style="background-color: #fafafa">
+
+    <div class="cb-demo-content" id="home">
+      <div class="cb-demo-container" style="width: 80%; background: #fafafa">
+        <div class="hero_img">
+          <img src="./tmp/assets/v1.jpg" alt="Profile Picture" class="rounded-image" id="photo" />
+        </div>
+        <div class="cb-demo-items">
+          <div class="cb-demo-row" style="margin-bottom: 0%">
+            <div class="cb-demo-item" data-cursor="-opaque">
+              <div class="cb-demo-item-title" style="font-family: 'Kalnia', sans-serif">
+                Hi, <br />
+                I'm Vedant Dhamale
+              </div>
+              <div class="cb-demo-item-text" style="font-family: 'Mooli', sans-serif">
+                Artificial Intelligence & Data Science student at VPKBIET,
+                exploring the frontiers of intelligent systems and data-driven
+                solutions.
+              </div>
+            </div>
+          </div>
+
+          <div class="icon-container">
+            <a href="javascript:void(0)" onclick="openPopup('linkedin')" data-cursor="-hidden"><i
+                class="fab fa-linkedin-in"></i></a>
+
+            <a href="javascript:void(0)" onclick="openPopup('github')" data-cursor="-hidden"><i
+                class="fab fa-github"></i></a>
+
+            <a href="javascript:void(0)" onclick="openPopup('instagram')" data-cursor="-hidden"><i
+                class="fab fa-instagram"></i></a>
+            <br /><br />
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="./tmp/assets/js/bundle.js" defer></script>
+  <script src="https://unpkg.com/split-type"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+    integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    const image = document.getElementById("photo");
+
+    const zoomIn = gsap.to(image, {
+      duration: 0.5,
+      ease: "power2.inOut",
+      scale: 1.1,
+      transformOrigin: "center center",
+    });
+
+    image.addEventListener("mouseenter", () => zoomIn.play());
+    image.addEventListener("mouseleave", () => zoomIn.reverse());
+
+    gsap.to(image, {
+      duration: 0.3,
+      ease: "sine.inOut",
+      scale: 1.05,
+      boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+      opacity: 1.1,
+      transformOrigin: "center center",
+    });
+
+    const profiles = {
+      linkedin: {
+        title: "LinkedIn",
+        icon: "fab fa-linkedin-in",
+        color: "#0077b5",
+        desc: "Connect with me on LinkedIn for professional updates and networking.",
+        btnText: "Connect on LinkedIn",
+        link: "https://in.linkedin.com/in/vedant-dhamale-0ab58b286?trk=people-guest_people_search-card"
+      },
+      github: {
+        title: "GitHub",
+        icon: "fab fa-github",
+        color: "#333",
+        desc: "Check out my open source projects and code repositories.",
+        btnText: "View GitHub Profile",
+        link: "https://github.com/VedantDhamale"
+      },
+      instagram: {
+        title: "Instagram",
+        icon: "fab fa-instagram",
+        color: "#e1306c",
+        desc: "Follow my personal journey and photography.",
+        btnText: "Follow on Instagram",
+        link: "https://www.instagram.com/__imvedant?igshid=OGQ5ZDc2ODk2ZA=="
+      }
+    };
+
+    function openPopup(type) {
+      const modal = document.getElementById('modal-overlay');
+      const content = document.getElementById('modal-body-content');
+      const profile = profiles[type];
+
+      if (profile) {
+        content.innerHTML = `
+          <div class="profile-card">
+            <div class="profile-icon" style="color: ${profile.color}">
+              <i class="${profile.icon}"></i>
+            </div>
+            <h2 class="profile-title">${profile.title}</h2>
+            <p class="profile-desc">${profile.desc}</p>
+            <a href="${profile.link}" target="_blank" class="profile-btn" style="background-color: ${profile.color}">
+              ${profile.btnText}
+            </a>
+          </div>
+        `;
+        modal.classList.add('active');
+      }
+    }
+
+    function closePopup() {
+      const modal = document.getElementById('modal-overlay');
+      modal.classList.remove('active');
+    }
+  </script>
+
+  <!-- Modal Structure -->
+  <div id="modal-overlay" class="modal-overlay" onclick="closePopup()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <div id="modal-body-content" class="modal-body">
+        <!-- Content injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
+</body>
+
+</html>
