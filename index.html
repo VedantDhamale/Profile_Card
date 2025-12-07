@@ -87,6 +87,26 @@
         transform: scale(1.1);
       }
     }
+    /* Reduce horizontal margins on small screens */
+    @media (max-width: 600px) {
+      .cb-demo-container {
+        width: 94% !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        box-sizing: border-box;
+      }
+
+      /* Slightly tighten text and image to better fit single mobile view */
+      .cb-demo-item-text, .cb-demo-item-skills {
+        font-size: 0.95rem;
+        line-height: 1.06;
+      }
+
+      .rounded-image {
+        width: 140px;
+        height: 140px;
+      }
+    }
   </style>
 </head>
 
