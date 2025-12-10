@@ -99,6 +99,21 @@
         margin-top: 0.4rem;
       }
     }
+
+    /* Disable page scroll on larger screens, enable only on mobile */
+    html,
+    body {
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+
+      html,
+      body {
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
   </style>
 </head>
 
